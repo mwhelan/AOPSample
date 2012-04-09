@@ -1,0 +1,8 @@
+﻿@using AopSample.Web
+
+@helper Save(){
+    string val = LocalSiteMap.Buttons.Save;
+    <p>
+        <input type="submit" id=@val value=@val />
+    </p>
+}

@@ -1,0 +1,8 @@
+﻿@using System.Text.RegularExpressions;
+@using Shared.Core.Extensions
+@{
+    var originalId = ViewData.TemplateInfo.HtmlFieldPrefix;
+    var id = originalId.TestableId();
+}
+
+<span id="@id">@ViewData.TemplateInfo.FormattedModelValue</span>

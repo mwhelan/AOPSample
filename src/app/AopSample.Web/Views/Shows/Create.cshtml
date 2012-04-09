@@ -1,0 +1,24 @@
+﻿@using AopSample.Web
+@using AopSample.Infrastructure.Web.ViewModels.Shows
+@model CreateShowForm
+
+@{
+    ViewBag.Title = LocalSiteMap.PageTitles.Shows.Create; 
+}
+<input type="hidden" id="pageId" value="@LocalSiteMap.Screen.Shows.Create" />
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Create Show</legend>
+
+        @Html.EditorForModel()
+
+        @Buttons.Save()
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -1,0 +1,22 @@
+﻿@using AopSample.Infrastructure.Web.ViewModels.Shows
+@using AopSample.Web.Controllers
+@using Microsoft.Web.Mvc
+@model DetailShowView
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Show Details</legend>
+
+    @Html.DisplayForModel()
+
+</fieldset>
+<p>
+    @(Html.ActionLink<ShowsController>(x => x.Edit(Model.Id), "Edit")) |
+    @(Html.ActionLink<ShowsController>(x => x.Index(),"Back to List"))
+</p>

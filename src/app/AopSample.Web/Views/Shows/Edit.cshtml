@@ -1,0 +1,24 @@
+﻿@using AopSample.Web
+@using AopSample.Infrastructure.Web.ViewModels.Shows
+@model EditShowForm
+
+@{
+    ViewBag.Title = LocalSiteMap.PageTitles.Shows.Edit; 
+}
+<input type="hidden" name="pageId" value="@LocalSiteMap.Screen.Shows.Edit" />
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Edit Show</legend>
+
+        @Html.EditorForModel()
+
+        @Buttons.Save()
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

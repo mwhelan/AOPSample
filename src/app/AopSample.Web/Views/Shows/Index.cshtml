@@ -1,0 +1,48 @@
+﻿@using AopSample.Infrastructure.Web.ViewModels.Shows
+@using AopSample.Web
+@using AopSample.Web.Controllers
+@using Microsoft.Web.Mvc
+@using MvcContrib.UI.Grid; 
+@model List<ListShowView>
+
+@{
+    ViewBag.Title = LocalSiteMap.PageTitles.Shows.Index;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<input type="hidden" id="pageId" value="@LocalSiteMap.Screen.Shows.Index" />
+<h2>Shows</h2>
+
+@*	@Html.Grid(Model).Columns(column => {
+     		column.For(x => x.Name);
+     		column.For(x => @Html.DisplayFor(x.Overview));
+            column.For(x => Html.ActionLink<ShowsController>(c => c.Details(x.Id), LocalSiteMap.PageLinks.Shows.Details)).DoNotEncode();
+            column.For(x => Html.ActionLink<ShowsController>(c => c.Edit(x.Id), LocalSiteMap.PageLinks.Shows.Edit)).DoNotEncode();
+})
+*@
+
+<table id="listTable">
+  <thead>
+    <tr>
+      <td>Edit</td>
+      <td>Name</td>
+      <td>Overview</td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+@{ var i = 0;}
+@foreach (var show in Model) 
+{
+    <tr>
+      <td>@Html.ActionLink("Edit", "Edit", 
+            new { id = show.Id })</td>
+      <td>@Html.DisplayFor(m => m[i].Name)</td>
+      <td>@Html.DisplayFor(m => m[i].Overview)</td>
+    </tr>
+  i++;
+}
+  </tbody>
+</table>
+
+<p>@(Html.ActionLink<ShowsController>(c => c.Create(), LocalSiteMap.PageLinks.Shows.Create, new { rel = LocalSiteMap.PageLinks.Shows.Create }))</p>
+

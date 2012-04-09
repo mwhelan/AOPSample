@@ -1,0 +1,12 @@
+﻿@using AopSample.Web
+@using AopSample.Web.Controllers
+@using Microsoft.Web.Mvc
+@{
+    ViewBag.Title = LocalSiteMap.PageTitles.Home.HomePage;
+}
+
+<h2>Index</h2>
+
+<h2>@ViewBag.Message</h2>
+<p>@(Html.ActionLink<ShowsController>(x => x.Index(), LocalSiteMap.PageLinks.Home.ShowList))</p>
+<p>@(Html.ActionLink<ShowsController>(x => x.Create(), LocalSiteMap.PageLinks.Home.CreateShow))</p>
