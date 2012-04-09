@@ -33,3 +33,5 @@ docs/
 nuget/
 # Don't include NuGet Packages
 packages/
+# Do include NuGet.exe (override ignoring .exe)
+!NuGet.exe
